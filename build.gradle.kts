@@ -5,6 +5,16 @@ plugins {
     `maven-publish`
 }
 
+publishing {
+    publications {
+        create<MavenPublication>("jar") {
+            from(components["java"])
+            groupId = "org.utpython.types"
+            artifactId = project.name
+        }
+    }
+}
+
 tasks.test {
     useJUnitPlatform()
 }
